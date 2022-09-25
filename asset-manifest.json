@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/github.io/notes-app-react-dicoding/static/css/main.e963a344.css",
+    "main.js": "/github.io/notes-app-react-dicoding/static/js/main.306d61ce.js",
+    "static/js/787.9243050f.chunk.js": "/github.io/notes-app-react-dicoding/static/js/787.9243050f.chunk.js",
+    "index.html": "/github.io/notes-app-react-dicoding/index.html",
+    "main.e963a344.css.map": "/github.io/notes-app-react-dicoding/static/css/main.e963a344.css.map",
+    "main.306d61ce.js.map": "/github.io/notes-app-react-dicoding/static/js/main.306d61ce.js.map",
+    "787.9243050f.chunk.js.map": "/github.io/notes-app-react-dicoding/static/js/787.9243050f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e963a344.css",
+    "static/js/main.306d61ce.js"
+  ]
+}
