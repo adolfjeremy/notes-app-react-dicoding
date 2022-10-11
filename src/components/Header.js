@@ -1,11 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+import LocaleContext from "../contexts/LocaleContext";
+import ThemeContext from "../contexts/ThemeContext";
 import { NavLink, Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import { MdViewHeadline } from "react-icons/md";
+import { BsTranslate } from "react-icons/bs";
+import { BsFillSunFill } from "react-icons/bs";
+import { BsMoonFill } from "react-icons/bs";
+
 import "../styles/header.css";
 
 function Header() {
+    const { locale, toggleLocale } = useContext(LocaleContext);
+    const { theme, toggleTheme } = useContext(ThemeContext);
+
     let [active, setActive] = useState(false);
+
     const menu = useRef(null);
     const closeMenu = () => setActive(false);
     const closeOpenMenus = (e) => {
@@ -17,7 +27,7 @@ function Header() {
     return (
         <header>
             <Link to="/" className="app_name">
-                Aplikasi Catatan
+                {locale === "id" ? "Aplikasi Catatan" : "Notes App"}
             </Link>
             <nav className={active ? "show" : ""}>
                 <ul>
@@ -30,7 +40,7 @@ function Header() {
                             to="/"
                             onClick={closeMenu}
                         >
-                            aktif
+                            {locale === "id" ? "aktif" : "active"}
                         </NavLink>
                     </li>
                     <li className="nav_item">
@@ -41,7 +51,7 @@ function Header() {
                             to="/arsip"
                             onClick={closeMenu}
                         >
-                            arsip
+                            {locale === "id" ? "arsip" : "archive"}
                         </NavLink>
                     </li>
                     <li className="nav_item">
@@ -52,8 +62,29 @@ function Header() {
                             to="/tambah-catatan"
                             onClick={closeMenu}
                         >
-                            tambah catatan
+                            {locale === "id" ? "tambah catatan" : "add note"}
                         </NavLink>
+                    </li>
+                    <li className="nav_item">
+                        <button onClick={toggleTheme}>
+                            {theme === "dark" ? (
+                                <BsFillSunFill />
+                            ) : (
+                                <BsMoonFill />
+                            )}
+                        </button>
+                    </li>
+                    <li className="nav_item">
+                        <button
+                            onClick={toggleLocale}
+                            title={
+                                locale === "id"
+                                    ? "translate to english"
+                                    : "terjemahkan ke bahasa indonesia"
+                            }
+                        >
+                            <BsTranslate />
+                        </button>
                     </li>
                 </ul>
             </nav>
