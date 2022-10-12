@@ -37,6 +37,7 @@ a {
 
 main {
     padding: 0 4%;
+    height: calc(100vh - 67px);
 }
 
 .page {

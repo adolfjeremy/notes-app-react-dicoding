@@ -8,7 +8,7 @@ function NoteItem({ title, timeStamp, body, id }) {
     return (
         <div className="note_item">
             <h2>
-                <Link to={`/note/${id}`}>{title}</Link>
+                <Link to={`/notes/${id}`}>{title}</Link>
             </h2>
             <span>{showFormattedDate(timeStamp)}</span>
             <div className="body">

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
     getNote,
-    deleteNote,
     archiveNote,
     unarchiveNote,
-} from "../utils/local-data";
+    deleteNote,
+} from "../utils/network-data";
 import NoteDetailItem from "../components/NoteDetailItem";
 import Button from "../components/Button";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -16,20 +16,35 @@ import "../styles/noteDetail.css";
 function NoteDetailPage() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [noteDetail] = useState(getNote(id));
-    const handleDelete = (noteId) => {
-        deleteNote(noteId);
-        navigate("/");
+    const [noteDetail, setNoteDetail] = useState();
+
+    useEffect(() => {
+        const fetchNoteDetail = async () => {
+            const { data } = await getNote(id);
+            setNoteDetail(data);
+        };
+        fetchNoteDetail();
+    }, [id]);
+
+    const handleDelete = async (noteId) => {
+        const { error } = await deleteNote(noteId);
+        if (!error) {
+            navigate("/");
+        }
     };
 
-    const handleArchieve = (noteId) => {
-        archiveNote(noteId);
-        navigate("/");
+    const handleArchieve = async (noteId) => {
+        const { error } = await archiveNote(noteId);
+        if (!error) {
+            navigate("/");
+        }
     };
 
-    const handleActivate = (noteId) => {
-        unarchiveNote(noteId);
-        navigate("/");
+    const handleActivate = async (noteId) => {
+        const { error } = await unarchiveNote(noteId);
+        if (!error) {
+            navigate("/");
+        }
     };
     return noteDetail ? (
         <div className="page">
