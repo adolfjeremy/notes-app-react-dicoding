@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/notes-app-react-dicoding/static/css/main.368d5d1c.css",
-    "main.js": "/notes-app-react-dicoding/static/js/main.e927d29f.js",
+    "main.js": "/notes-app-react-dicoding/static/js/main.053c5662.js",
     "static/js/787.9243050f.chunk.js": "/notes-app-react-dicoding/static/js/787.9243050f.chunk.js",
     "index.html": "/notes-app-react-dicoding/index.html",
     "main.368d5d1c.css.map": "/notes-app-react-dicoding/static/css/main.368d5d1c.css.map",
-    "main.e927d29f.js.map": "/notes-app-react-dicoding/static/js/main.e927d29f.js.map",
+    "main.053c5662.js.map": "/notes-app-react-dicoding/static/js/main.053c5662.js.map",
     "787.9243050f.chunk.js.map": "/notes-app-react-dicoding/static/js/787.9243050f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.368d5d1c.css",
-    "static/js/main.e927d29f.js"
+    "static/js/main.053c5662.js"
   ]
 }
