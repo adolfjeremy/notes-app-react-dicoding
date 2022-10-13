@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/notes-app-react-dicoding/static/css/main.e963a344.css",
-    "main.js": "/notes-app-react-dicoding/static/js/main.dc9a54d2.js",
+    "main.css": "/notes-app-react-dicoding/static/css/main.368d5d1c.css",
+    "main.js": "/notes-app-react-dicoding/static/js/main.e927d29f.js",
     "static/js/787.9243050f.chunk.js": "/notes-app-react-dicoding/static/js/787.9243050f.chunk.js",
     "index.html": "/notes-app-react-dicoding/index.html",
-    "main.e963a344.css.map": "/notes-app-react-dicoding/static/css/main.e963a344.css.map",
-    "main.dc9a54d2.js.map": "/notes-app-react-dicoding/static/js/main.dc9a54d2.js.map",
+    "main.368d5d1c.css.map": "/notes-app-react-dicoding/static/css/main.368d5d1c.css.map",
+    "main.e927d29f.js.map": "/notes-app-react-dicoding/static/js/main.e927d29f.js.map",
     "787.9243050f.chunk.js.map": "/notes-app-react-dicoding/static/js/787.9243050f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e963a344.css",
-    "static/js/main.dc9a54d2.js"
+    "static/css/main.368d5d1c.css",
+    "static/js/main.e927d29f.js"
   ]
 }
