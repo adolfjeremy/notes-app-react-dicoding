@@ -115,7 +115,7 @@ function Header({ isAuthed, logout }) {
 }
 
 Header.propTypes = {
-    isAuthed: PropTypes.object.isRequired,
+    isAuthed: PropTypes.object,
     logout: PropTypes.func.isRequired,
 };
 
