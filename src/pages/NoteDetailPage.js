@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import LocaleContext from "../contexts/LocaleContext";
 import {
     getNote,
     archiveNote,
@@ -18,6 +19,7 @@ function NoteDetailPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [noteDetail, setNoteDetail] = useState();
+    const { locale } = useContext(LocaleContext);
     let [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -82,7 +84,9 @@ function NoteDetailPage() {
             />
         </div>
     ) : (
-        <div className="page">ups... catatan ini sudah dihapus</div>
+        <div className="page">
+            {locale === "id" ? "Catatan Tidak ditemukan" : "Notes Not found"}
+        </div>
     );
 }
 

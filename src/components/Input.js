@@ -28,6 +28,7 @@ Input.propTypes = {
     type: PropTypes.string.isRequired,
     className: PropTypes.string,
     name: PropTypes.string,
+    placeHolder: PropTypes.string.isRequired,
 };
 
 export default Input;
