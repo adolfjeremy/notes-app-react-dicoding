@@ -46,12 +46,11 @@ function LoginPage({ onLoginSuccess }) {
             </form>
             {locale === "id" ? (
                 <p>
-                    Belum punya akun ? <a href="/register">Daftar disini</a>
+                    Belum punya akun? <a href="/register">Daftar disini</a>
                 </p>
             ) : (
                 <p>
-                    Don't have an account ?{" "}
-                    <a href="/register">Register here</a>
+                    Don't have an account? <a href="/register">Register here</a>
                 </p>
             )}
         </section>

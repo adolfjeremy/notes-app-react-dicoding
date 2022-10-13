@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 import LocaleContext from "../contexts/LocaleContext";
 import ThemeContext from "../contexts/ThemeContext";
 import { NavLink, Link } from "react-router-dom";
-import { MdClose } from "react-icons/md";
-import { MdViewHeadline } from "react-icons/md";
-import { BsTranslate } from "react-icons/bs";
-import { BsFillSunFill } from "react-icons/bs";
-import { BsMoonFill } from "react-icons/bs";
+import { MdClose, MdViewHeadline } from "react-icons/md";
+import {
+    BsTranslate,
+    BsBoxArrowRight,
+    BsFillSunFill,
+    BsMoonFill,
+} from "react-icons/bs";
 
 import "../styles/header.css";
 
-function Header({ isAuthed }) {
+function Header({ isAuthed, logout }) {
     const { locale, toggleLocale } = useContext(LocaleContext);
     const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -70,6 +72,16 @@ function Header({ isAuthed }) {
                                         : "add note"}
                                 </NavLink>
                             </li>
+                            <li className="nav_item">
+                                <button
+                                    title={
+                                        locale === "id" ? "keluar" : "sign out"
+                                    }
+                                    onClick={logout}
+                                >
+                                    <BsBoxArrowRight />
+                                </button>
+                            </li>
                         </>
                     )}
                     <li className="nav_item">
@@ -104,6 +116,7 @@ function Header({ isAuthed }) {
 
 Header.propTypes = {
     isAuthed: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired,
 };
 
 export default Header;

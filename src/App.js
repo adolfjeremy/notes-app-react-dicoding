@@ -33,6 +33,11 @@ function App() {
         setAuthedUser(data);
     };
 
+    const onLogout = () => {
+        setAuthedUser(null);
+        putAccessToken("");
+    };
+
     useEffect(() => {
         const fetchUserData = async () => {
             const { data } = await getUserLogged();
@@ -66,7 +71,7 @@ function App() {
                     <Loading />
                 ) : (
                     <div className="App">
-                        <Header isAuthed={authedUser} />
+                        <Header logout={onLogout} isAuthed={authedUser} />
                         <main>
                             <Routes>
                                 {authedUser === null ? (
@@ -81,18 +86,16 @@ function App() {
                                                 />
                                             }
                                         />
+                                        <Route
+                                            path="/register"
+                                            element={<RegisterPage />}
+                                        />
                                     </>
                                 ) : (
                                     <>
                                         <Route
                                             path="/register"
-                                            element={
-                                                authedUser ? (
-                                                    <NotFound />
-                                                ) : (
-                                                    <RegisterPage />
-                                                )
-                                            }
+                                            element={<NotFound />}
                                         />
                                         <Route
                                             path="/"

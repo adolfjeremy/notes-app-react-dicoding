@@ -57,11 +57,11 @@ function RegisterPage() {
             </form>
             {locale === "id" ? (
                 <p>
-                    Sudah punya akun ? <a href="/">Masuk disini</a>
+                    Sudah punya akun? <a href="/">Masuk disini</a>
                 </p>
             ) : (
                 <p>
-                    Already have an account ?<a href="/">Register here</a>
+                    Already have an account? <a href="/">login here</a>
                 </p>
             )}
         </section>
