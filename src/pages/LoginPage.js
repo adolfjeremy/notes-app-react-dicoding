@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 import LocaleContext from "../contexts/LocaleContext";
@@ -46,11 +47,12 @@ function LoginPage({ onLoginSuccess }) {
             </form>
             {locale === "id" ? (
                 <p>
-                    Belum punya akun? <a href="/register">Daftar disini</a>
+                    Belum punya akun? <Link to="/register">Daftar disini</Link>
                 </p>
             ) : (
                 <p>
-                    Don't have an account? <a href="/register">Register here</a>
+                    Don't have an account?{" "}
+                    <Link to="/register">Register here</Link>
                 </p>
             )}
         </section>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useInput from "../hooks/useInput";
 import LocaleContext from "../contexts/LocaleContext";
 import Input from "../components/Input";
@@ -57,11 +57,11 @@ function RegisterPage() {
             </form>
             {locale === "id" ? (
                 <p>
-                    Sudah punya akun? <a href="/">Masuk disini</a>
+                    Sudah punya akun? <Link to="/">Masuk disini</Link>
                 </p>
             ) : (
                 <p>
-                    Already have an account? <a href="/">login here</a>
+                    Already have an account? <Link to="/">login here</Link>
                 </p>
             )}
         </section>
