@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import LocaleContext from "../contexts/LocaleContext";
 import ThemeContext from "../contexts/ThemeContext";
 import { NavLink, Link } from "react-router-dom";
@@ -10,7 +11,7 @@ import { BsMoonFill } from "react-icons/bs";
 
 import "../styles/header.css";
 
-function Header() {
+function Header({ isAuthed }) {
     const { locale, toggleLocale } = useContext(LocaleContext);
     const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -31,40 +32,46 @@ function Header() {
             </Link>
             <nav className={active ? "show" : ""}>
                 <ul>
-                    <li className="nav_item">
-                        <NavLink
-                            className={({ isActive }) =>
-                                isActive ? "active" : ""
-                            }
-                            end
-                            to="/"
-                            onClick={closeMenu}
-                        >
-                            {locale === "id" ? "aktif" : "active"}
-                        </NavLink>
-                    </li>
-                    <li className="nav_item">
-                        <NavLink
-                            className={({ isActive }) =>
-                                isActive ? "active" : ""
-                            }
-                            to="/arsip"
-                            onClick={closeMenu}
-                        >
-                            {locale === "id" ? "arsip" : "archive"}
-                        </NavLink>
-                    </li>
-                    <li className="nav_item">
-                        <NavLink
-                            className={({ isActive }) =>
-                                isActive ? "active" : ""
-                            }
-                            to="/tambah-catatan"
-                            onClick={closeMenu}
-                        >
-                            {locale === "id" ? "tambah catatan" : "add note"}
-                        </NavLink>
-                    </li>
+                    {isAuthed && (
+                        <>
+                            <li className="nav_item">
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : ""
+                                    }
+                                    end
+                                    to="/"
+                                    onClick={closeMenu}
+                                >
+                                    {locale === "id" ? "aktif" : "active"}
+                                </NavLink>
+                            </li>
+                            <li className="nav_item">
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : ""
+                                    }
+                                    to="/arsip"
+                                    onClick={closeMenu}
+                                >
+                                    {locale === "id" ? "arsip" : "archive"}
+                                </NavLink>
+                            </li>
+                            <li className="nav_item">
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : ""
+                                    }
+                                    to="/tambah-catatan"
+                                    onClick={closeMenu}
+                                >
+                                    {locale === "id"
+                                        ? "tambah catatan"
+                                        : "add note"}
+                                </NavLink>
+                            </li>
+                        </>
+                    )}
                     <li className="nav_item">
                         <button onClick={toggleTheme}>
                             {theme === "dark" ? (
@@ -94,5 +101,9 @@ function Header() {
         </header>
     );
 }
+
+Header.propTypes = {
+    isAuthed: PropTypes.object.isRequired,
+};
 
 export default Header;

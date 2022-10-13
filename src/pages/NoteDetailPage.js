@@ -11,17 +11,20 @@ import Button from "../components/Button";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsBookmarkCheckFill } from "react-icons/bs";
 import { BsBookmarkDashFill } from "react-icons/bs";
+import Loading from "../components/Loading";
 import "../styles/noteDetail.css";
 
 function NoteDetailPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [noteDetail, setNoteDetail] = useState();
+    let [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchNoteDetail = async () => {
             const { data } = await getNote(id);
             setNoteDetail(data);
+            setLoading(false);
         };
         fetchNoteDetail();
     }, [id]);
@@ -46,7 +49,11 @@ function NoteDetailPage() {
             navigate("/");
         }
     };
-    return noteDetail ? (
+    return isLoading ? (
+        <div className="page">
+            <Loading />
+        </div>
+    ) : noteDetail ? (
         <div className="page">
             <NoteDetailItem {...noteDetail} />
             {noteDetail.archived ? (

@@ -55,6 +55,15 @@ function RegisterPage() {
                     {locale === "id" ? "daftar" : "sign up"}
                 </button>
             </form>
+            {locale === "id" ? (
+                <p>
+                    Sudah punya akun ? <a href="/">Masuk disini</a>
+                </p>
+            ) : (
+                <p>
+                    Already have an account ?<a href="/">Register here</a>
+                </p>
+            )}
         </section>
     );
 }

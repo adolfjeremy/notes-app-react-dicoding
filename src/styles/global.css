@@ -5,13 +5,15 @@
     --active-color: #64ffda;
     --font-color: #ccd6f6;
     --background-color: #0a192f;
+    --loading-color: rgba(17, 17, 17, 0.5);
 }
 
 [data-theme="light"] {
-    --heading-color: #111;
+    --heading-color: #0a192f;
     --active-color: #ffc107;
     --font-color: #111;
     --background-color: #fff;
+    --loading-color: rgba(10, 25, 47, 0.3);
 }
 
 * {
@@ -42,6 +44,7 @@ main {
 
 .page {
     padding: 20px 0;
+    height: 100%;
 }
 
 .page h1 {
@@ -55,4 +58,32 @@ main {
     color: #787a82;
     content: attr(data-placeholder);
     font-size: 1.125rem;
+}
+
+.loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--loading-color);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(1deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading_circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px dashed var(--heading-color);
+    position: relative;
+    animation: rotate 3s linear infinite alternate;
 }
